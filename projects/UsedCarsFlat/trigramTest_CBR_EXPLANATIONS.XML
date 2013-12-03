@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document MyCBR_version="2.6.5">
+  <ExplanationScheme Description="About thing is nothing to say..." conceptID="String:THING" />
+  <ExplanationScheme Description="A car is an automobile.... " conceptID="ModelClsProtege:Car">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="How many miles were already driven with this car" conceptID="ModelSlotProtege:Miles" />
+  <ExplanationScheme Description="The color of the car" conceptID="ModelSlotProtege:Color">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Top speed of the car" conceptID="ModelSlotProtege:Speed" />
+  <ExplanationScheme Description="Year of creation" conceptID="ModelSlotProtege:Year" />
+  <ExplanationScheme Description="What does the car cost?" conceptID="ModelSlotProtege:Price">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Body of the car" conceptID="ModelSlotProtege:Body">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Cylinder capacity of the engine." conceptID="ModelSlotProtege:CCM">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/Engine_displacement" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Sort of fuel on which the motor runs" conceptID="ModelSlotProtege:Gas">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/Gasoline" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="The very first diesel-engine automobile trip was completed on January 6, 1930. The trip was from Indianapolis to New York City, a distance of nearly 800 miles (1300 km)" conceptID="String:diesel">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Gasoline or petrol is a petroleum-derived liquid mixture consisting mostly of aliphatic hydrocarbons, enhanced with iso-octane or the aromatic hydrocarbons" conceptID="String:gasoline">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Horse power" conceptID="ModelSlotProtege:Power">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/Horse_power" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:Car Code">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/ACRISS_Car_Classification_Code" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="How many doors does the car have?" conceptID="ModelSlotProtege:Doors">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/Car_door" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Who built that car?" conceptID="ModelSlotProtege:Manufacturer">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Audi AG—more commonly known as Audi—is a premium German automobile manufacturer and one of the world's leading performance-luxury marques, with headquarters in Ingolstadt, Bavaria. The company traces its origins back to 1899." conceptID="String:audi">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+    <KnowledgeSource name="homepage" type="0" pattern="http://www.audi.com" />
+    <KnowledgeSource name="google images" type="0" pattern="http://images.google.de/images?q=$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Bayerische Motoren Werke AG (info) (BMW), (English: Bavarian Motor Works) is an independent German automobile manufacturer. BMW is one of the world's leading[clarify] manufacturers of cars and motorcycles, and is the parent company of the MINI and Rolls-Royce car brands." conceptID="String:bmw">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+    <KnowledgeSource name="Home page" type="0" pattern="http://www.bmw.com/" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Mercedes was a brand of the Daimler Motoren Gesellschaft (DMG) which began to develop in 1900, after the death of its co-founder, Gottlieb Daimler.&#xA;" conceptID="String:mercedes-benz">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+    <KnowledgeSource name="Home page" type="0" pattern="http://www3.mercedes-benz.com" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="Volkswagen is an automobile manufacturer based in Wolfsburg, Germany. It forms the core of the Volkswagen Group, which is the world's fourth largest car producer after Toyota, Ford, and GM respectively" conceptID="String:vw">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+    <KnowledgeSource name="Home page" type="0" pattern="http://www.volkswagen.com" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="model type of the car. Depends on the manufacturer." conceptID="ModelSlotProtege:Model">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/$CONCEPT$" />
+  </ExplanationScheme>
+  <ExplanationScheme Description="postal code of the vendor" conceptID="ModelSlotProtege:ZIP">
+    <KnowledgeSource name="wikipedia" type="0" pattern="http://en.wikipedia.org/wiki/ZIP_code" />
+    <KnowledgeSource name="google maps" type="0" pattern="http://maps.google.de/maps?client=firefox-a&amp;rls=org.mozilla:de:official&amp;channel=s&amp;hl=de&amp;tab=wl" />
+  </ExplanationScheme>
+  <SMExplanation model_instname="Body" smfname="BodyFunc" type="Symbol" />
+  <SMExplanation model_instname="CDPlayer" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="Bass" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="Gas" smfname="GasFunc" type="Symbol" />
+  <SMExplanation model_instname="Manufacturer" smfname="ManufacturerFunc" type="Symbol" />
+</Document>
+

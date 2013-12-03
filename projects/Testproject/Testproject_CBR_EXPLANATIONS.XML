@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document MyCBR_version="2.6.6">
+  <ExplanationScheme Description="" conceptID="String:THING" />
+  <ExplanationScheme Description="" conceptID="ModelClsProtege:ConceptC" />
+  <ExplanationScheme Description="" conceptID="ModelClsProtege:ConceptD" />
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:e" />
+  <ExplanationScheme Description="" conceptID="String:s1" />
+  <ExplanationScheme Description="" conceptID="String:s2" />
+  <ExplanationScheme Description="" conceptID="String:s3" />
+  <ExplanationScheme Description="" conceptID="DefaultCls:Cls(ConceptE)" />
+  <ExplanationScheme Description="" conceptID="DefaultCls:Cls(ConceptD)" />
+  <ExplanationScheme Description="" conceptID="ModelClsProtege:ConceptE" />
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:f" />
+  <ExplanationScheme Description="" conceptID="ModelClsProtege:ConceptA" />
+  <ExplanationScheme Description="" conceptID="ModelClsProtege:ConceptB" />
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:c" />
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:a" />
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:b" />
+  <ExplanationScheme Description="" conceptID="ModelSlotProtege:d" />
+  <ExplanationScheme Description="" conceptID="DefaultCls:Cls(ConceptB)" />
+  <SMExplanation model_instname="f" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="e" smfname="default" type="Symbol" />
+</Document>
+

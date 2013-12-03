@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Project name="MyCBRImportTest" author="" >
+<svs>
+  <sv name="_others_"/>
+  <sv name="_unknown_"/>
+  <sv name="_undefined_"/>
+<fct name="default function" type="Symbol" mt="PARTNER_QUERY" r="REUSE" t="MAX" symm="true">
+<qsym name="_others_">
+</qsym>
+<qsym name="_unknown_">
+</qsym>
+<qsym name="_undefined_">
+</qsym>
+</fct>
+</svs>
+<model>
+  <concept name="Car">
+    <desc name="Manufacturer" type="Symbol" mult="false" >
+      <symbol value="Audi" />
+      <symbol value="FIAT" />
+      <symbol value="SEAT" />
+      <symbol value="Ford" />
+      <symbol value="VW" />
+      <symbol value="BMW" />
+      <symbol value="Mercedes" />
+<fct name="default" type="Symbol" mt="PARTNER_QUERY" r="REUSE" t="MAX" symm="false">
+<qsym name="Audi">
+<csym name="Ford" sim="0.2"/>
+<csym name="VW" sim="0.2"/>
+<csym name="BMW" sim="0.6"/>
+<csym name="Mercedes" sim="0.5"/>
+</qsym>
+<qsym name="FIAT">
+</qsym>
+<qsym name="SEAT">
+</qsym>
+<qsym name="Ford">
+<csym name="Audi" sim="0.2"/>
+<csym name="VW" sim="0.4"/>
+</qsym>
+<qsym name="VW">
+<csym name="Audi" sim="0.2"/>
+<csym name="Ford" sim="0.4"/>
+<csym name="BMW" sim="0.1"/>
+<csym name="Mercedes" sim="0.1"/>
+</qsym>
+<qsym name="BMW">
+<csym name="Audi" sim="0.6"/>
+<csym name="VW" sim="0.1"/>
+<csym name="Mercedes" sim="0.6"/>
+</qsym>
+<qsym name="Mercedes">
+<csym name="Audi" sim="0.5"/>
+<csym name="VW" sim="0.1"/>
+<csym name="BMW" sim="0.6"/>
+</qsym>
+</fct>
+    </desc>
+    <desc name="Color" type="Symbol" mult="false" >
+      <symbol value="red" />
+      <symbol value="blue" />
+      <symbol value="green" />
+      <symbol value="white" />
+      <symbol value="brown" />
+      <symbol value="pink" />
+      <symbol value="yellow" />
+      <symbol value="black" />
+      <fct name="default" type="Taxonomy" mt="PARTNER_QUERY" r="REUSE" t="MAX" qconfig="INNER_NODES_ANY" cconfig="INNER_NODES_ANY" top="Color" sim="0.0" symm="true" >
+        <node name="white" sim="0.75" parent="Color" />
+        <node name="blue" sim="0.97" parent="red" />
+        <node name="brown" sim="0.88" parent="white" />
+        <node name="black" sim="1.0" parent="Color" />
+        <node name="pink" sim="0.94" parent="brown" />
+        <node name="yellow" sim="1.0" parent="pink" />
+        <node name="green" sim="1.0" parent="blue" />
+        <node name="red" sim="0.94" parent="brown" />
+      </fct>
+    </desc>
+    <amalgam name="default" type="WEIGHTED_SUM" active="true" >
+      <entry name="Manufacturer" active="true" fct="default" weight="1.0"/>
+      <entry name="Color" active="true" fct="default" weight="1.0"/>
+    </amalgam>
+  </concept>
+</model>
+<hierarchy>
+  <fct name="default function" type="Taxonomy" mt="PARTNER_QUERY" r="REUSE" t="MAX" qconfig="NO_INNERNODES" cconfig="NO_INNERNODES" top="inheritanceDesc" sim="0.0" symm="true" >
+    <node name="Car" sim="0.5" parent="inheritanceDesc" />
+  </fct>
+</hierarchy>
+<cases no="4" cb="CaseBase0"/>
+</Project>

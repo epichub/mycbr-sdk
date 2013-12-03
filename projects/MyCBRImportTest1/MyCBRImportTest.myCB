@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Project name="MyCBRImportTest" author="" >
+<instances name="Car">
+  <instance id="MyCBRImportTest_Class0" >
+    <att name="Color" value="green" />
+    <att name="Manufacturer" value="BMW" />
+  </instance>
+  <instance id="MyCBRImportTest_Class2" >
+    <att name="Color" value="green" />
+    <att name="Manufacturer" value="Audi" />
+  </instance>
+  <instance id="MyCBRImportTest_Class1" >
+    <att name="Manufacturer" value="BMW" />
+  </instance>
+  <instance id="MyCBRImportTest_Class3" >
+  </instance>
+</instances>
+<cb name="CaseBase0">
+     <case name="MyCBRImportTest_Class0" />
+     <case name="MyCBRImportTest_Class2" />
+     <case name="MyCBRImportTest_Class1" />
+     <case name="MyCBRImportTest_Class3" />
+</cb>
+</Project>

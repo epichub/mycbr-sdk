@@ -1,0 +1,33 @@
+; Mon Aug 24 09:32:35 CEST 2009
+; 
+;+ (version "3.3.1")
+;+ (build "Build 430")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot Manufacturer
+		(type SYMBOL)
+		(allowed-values BMW Audi VW Ford Mercedes SEAT FIAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Color
+		(type SYMBOL)
+		(allowed-values green black blue white yellow red pink brown)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Car
+	(is-a USER)
+	(role concrete)
+	(single-slot Manufacturer
+		(type SYMBOL)
+		(allowed-values BMW Audi VW Ford Mercedes SEAT FIAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Color
+		(type SYMBOL)
+		(allowed-values green black blue white yellow red pink brown)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))

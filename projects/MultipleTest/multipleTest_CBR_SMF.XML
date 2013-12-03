@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document MyCBR_version="2.6.6" Project_version="0.1" Project_author="unknown author">
+<SpecialValueHandler>
+  <SpecialValue Label="undefined" />
+  <InternalSMF smfname="SpecialValuesSMF" model_instname="_SPECIAL_VALUES_" type="Symbol">
+    <QuerySymbol symbol="Non-Special Value">
+      <CBSymbol sim="1.0" symbol="Non-Special Value" />
+    </QuerySymbol>
+    <QuerySymbol symbol="undefined">
+      <CBSymbol sim="1.0" symbol="undefined" />
+    </QuerySymbol>
+  </InternalSMF>
+</SpecialValueHandler>
+<Holder>
+<SMFunction smfname="default" model_instname="doors" type="String" mode="exact_match" active="true" simMode="Standard" />
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="dealer" type="String" mode="exact_match" active="true" simMode="Standard" />
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="equip" type="Symbol" active="true" simMode="Table">
+  <QuerySymbol symbol="radio">
+    <CBSymbol sim="1.0" symbol="radio" />
+  </QuerySymbol>
+  <QuerySymbol symbol="sunroof">
+    <CBSymbol sim="1.0" symbol="sunroof" />
+  </QuerySymbol>
+  <QuerySymbol symbol="air_conditioning">
+    <CBSymbol sim="1.0" symbol="air_conditioning" />
+  </QuerySymbol>
+  <QuerySymbol symbol="electric_window_lift">
+    <CBSymbol sim="1.0" symbol="electric_window_lift" />
+  </QuerySymbol>
+</SMFunction>
+<MultiMeasure>
+  <SMFunction smfname="default" model_instname="equip" type="NoType" multiSelection="20" oneOrMulti="11" noMatch="45" reuse="40" singleSim="30" totalFct="50" />
+</MultiMeasure>
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="Car" type="Class" amalgamation="euclidean" active="true" simMode="Standard">
+  <Slot slotname="ccm" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="color" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="comment" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="dealer" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="doors" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="equip" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="new" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="temp" enabled="true" weight="1.0" comment="" />
+  <Slot slotname="weight" enabled="true" weight="1.0" comment="" />
+</SMFunction>
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="new" type="Boolean" active="true" simMode="Boolean">
+  <QuerySymbol boolean="false">
+    <CBSymbol sim="1.0" boolean="false" />
+    <CBSymbol sim="0.0" boolean="true" />
+  </QuerySymbol>
+  <QuerySymbol boolean="true">
+    <CBSymbol sim="1.0" boolean="true" />
+    <CBSymbol sim="0.0" boolean="false" />
+  </QuerySymbol>
+</SMFunction>
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="weight" type="Float" maxval="5.0" minval="0.5" modeDiffOrQuotient="0" active="true" simMode="Standard">
+  <LeftSide step="0.0" polinomial="1.0" smooth_step="2.25" const="1.0" fctMode="polinomial" />
+  <RightSide step="0.0" polinomial="1.0" smooth_step="2.25" const="1.0" fctMode="polinomial" />
+</SMFunction>
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="ccm" type="String" mode="exact_match" active="true" simMode="Standard" />
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="color" type="Symbol" active="true" simMode="Table">
+  <QuerySymbol symbol="green">
+    <CBSymbol sim="1.0" symbol="green" />
+  </QuerySymbol>
+  <QuerySymbol symbol="black">
+    <CBSymbol sim="1.0" symbol="black" />
+  </QuerySymbol>
+  <QuerySymbol symbol="blue">
+    <CBSymbol sim="1.0" symbol="blue" />
+  </QuerySymbol>
+  <QuerySymbol symbol="white">
+    <CBSymbol sim="1.0" symbol="white" />
+  </QuerySymbol>
+  <QuerySymbol symbol="yellow">
+    <CBSymbol sim="1.0" symbol="yellow" />
+  </QuerySymbol>
+  <QuerySymbol symbol="red">
+    <CBSymbol sim="1.0" symbol="red" />
+  </QuerySymbol>
+  <QuerySymbol symbol="pink">
+    <CBSymbol sim="1.0" symbol="pink" />
+  </QuerySymbol>
+  <QuerySymbol symbol="brown">
+    <CBSymbol sim="1.0" symbol="brown" />
+  </QuerySymbol>
+  <QuerySymbol symbol="darkgreen">
+    <CBSymbol sim="1.0" symbol="darkgreen" />
+  </QuerySymbol>
+  <QuerySymbol symbol="darkblue">
+    <CBSymbol sim="1.0" symbol="darkblue" />
+  </QuerySymbol>
+</SMFunction>
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="temp" type="Integer" maxval="100.0" minval="-100.0" modeDiffOrQuotient="0" active="true" simMode="Standard">
+  <LeftSide step="0.0" polinomial="1.0" smooth_step="100.0" const="1.0" fctMode="polinomial" />
+  <RightSide step="0.0" polinomial="1.0" smooth_step="100.0" const="1.0" fctMode="polinomial" />
+</SMFunction>
+</Holder>
+<Holder>
+<SMFunction smfname="default" model_instname="comment" type="String" mode="exact_match" active="true" simMode="Standard" />
+</Holder>
+<InheritanceMeasure smfname="_IMF_INTERNAL_SMF_" model_instname="_FAKESLOT_IMF_" type="Symbol" topCls="Car">
+  <RootSymbol symbol="Car" simVal="0.0" />
+  <InnerNodesConfig scope="query" has_inner_values="no" inner_semantic="any_value" uncertain="pessimistic" />
+  <InnerNodesConfig scope="case" has_inner_values="no" inner_semantic="any_value" uncertain="pessimistic" />
+</InheritanceMeasure>
+</Document>

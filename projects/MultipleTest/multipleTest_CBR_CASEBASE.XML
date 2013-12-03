@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document MyCBR_version="2.6.6" Project_version="0.1" Project_author="unknown author">
+<Instances_for_Class class="Car">
+<Prototype>
+  <slotvalue slot="comment" value="String" />
+  <slotvalue slot="weight" value="Float" minval="0.5" maxval="5.0" />
+  <slotvalue slot="new" value="Boolean" />
+  <slotvalue slot="temp" value="Integer" minval="-100" maxval="100" />
+  <slotvalue slot="doors" value="String" minval="0.0" maxval="10.0" />
+  <slotvalue slot="color" value="Symbol" allowed_values="green;black;blue;white;yellow;red;pink;brown;darkgreen;darkblue" />
+  <slotvalue slot="ccm" value="String" minval="500.0" maxval="10000.0" />
+  <slotvalue slot="dealer" value="String" />
+  <slotvalue slot="equip" value="Symbol" multiple="true" allowed_values="radio;sunroof;air_conditioning;electric_window_lift" />
+</Prototype>
+<Instance model_instname="multipleTest_Instance_10">
+  <slotvalue slot="comment" value="_undefined_" />
+  <slotvalue slot="weight" value="_undefined_" />
+  <slotvalue slot="new" value="_undefined_" />
+  <slotvalue slot="temp" value="_undefined_" />
+  <slotvalue slot="doors" value="_undefined_" />
+  <slotvalue slot="color" value="_undefined_" />
+  <slotvalue slot="ccm" value="_undefined_" />
+  <slotvalue slot="dealer" value="_undefined_" />
+  <slotvalue slot="equip" value="radio" />
+  <slotvalue slot="equip" value="sunroof" />
+</Instance>
+<Instance model_instname="multipleTest_Instance_11">
+  <slotvalue slot="comment" value="_undefined_" />
+  <slotvalue slot="weight" value="_undefined_" />
+  <slotvalue slot="new" value="_undefined_" />
+  <slotvalue slot="temp" value="_undefined_" />
+  <slotvalue slot="doors" value="_undefined_" />
+  <slotvalue slot="color" value="_undefined_" />
+  <slotvalue slot="ccm" value="_undefined_" />
+  <slotvalue slot="dealer" value="_undefined_" />
+  <slotvalue slot="equip" value="radio" />
+  <slotvalue slot="equip" value="air_conditioning" />
+</Instance>
+<Instance model_instname="multipleTest_Instance_12">
+  <slotvalue slot="comment" value="_undefined_" />
+  <slotvalue slot="weight" value="_undefined_" />
+  <slotvalue slot="new" value="_undefined_" />
+  <slotvalue slot="temp" value="_undefined_" />
+  <slotvalue slot="doors" value="_undefined_" />
+  <slotvalue slot="color" value="_undefined_" />
+  <slotvalue slot="ccm" value="_undefined_" />
+  <slotvalue slot="dealer" value="_undefined_" />
+  <slotvalue slot="equip" value="radio" />
+  <slotvalue slot="equip" value="sunroof" />
+  <slotvalue slot="equip" value="air_conditioning" />
+  <slotvalue slot="equip" value="electric_window_lift" />
+</Instance>
+</Instances_for_Class>
+</Document>

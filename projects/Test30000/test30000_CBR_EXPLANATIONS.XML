@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document MyCBR_version="2.6.5">
+  <ExplanationScheme Description="" conceptID="String:THING" />
+  <SMExplanation model_instname="att23" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att16" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att24" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att7" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att11" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att9" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att27" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att3" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att4" smfname="default" type="Symbol" />
+  <SMExplanation model_instname="att5" smfname="default" type="Symbol" />
+</Document>
+
