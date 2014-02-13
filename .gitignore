@@ -1,3 +1,13 @@
 .idea/
 bin/**/*
 *.iml
+*.pins
+*.pont
+*_CBR_SMF.XML
+*_CBR_OPTIONS.XML
+*_CBR_EXPLANATIONS.XML
+*_CBR_CASEBASE.XML
+*.myCB
+*.myCBR
+*.myExp
+*.config
