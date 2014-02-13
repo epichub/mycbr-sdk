@@ -37,7 +37,7 @@ import junit.framework.TestCase;
  */
 public class BooleanDescTest extends TestCase {
 
-	public void calculateSimilarity() {
+	public void testcalculateSimilarity() {
 		//TODO
 		try {
 			

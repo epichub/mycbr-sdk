@@ -71,9 +71,9 @@ public class OrderedSymbolTest extends TestCase {
 			g.setFunctionParameterR(1.2);
 			
 			s = f.calculateSimilarity("red", "green");
-			assertTrue("sim(red,green) should be 0.88 but is " + s, s.getRoundedValue() == 0.88);
+			assertTrue("sim(red,green) should be 0.88 but is " + s, s.getRoundedValue() == 0.9);
 			s = f.calculateSimilarity("green", "red");
-			assertTrue("sim(green,red) should be 0.88 but is " + s,s.getRoundedValue() == 0.88);
+			assertTrue("sim(green,red) should be 0.88 but is " + s,s.getRoundedValue() == 0.9);
 			s = f.calculateSimilarity("green", "green");
 			assertTrue("sim(green,green) should be 1.0 but is " + s, s.getRoundedValue() == 1.00);
 			s = f.calculateSimilarity("white", "green");
@@ -90,9 +90,9 @@ public class OrderedSymbolTest extends TestCase {
 			s = f.calculateSimilarity("green", "green");
 			assertTrue("sim(green,green) should be 1.0 but is " + s, s.getRoundedValue() == 1.00);
 			s = f.calculateSimilarity("white", "green");
-			assertTrue("sim(white,green) should be 0.94 but is " + s, s.getRoundedValue() == 0.94);
+			assertTrue("sim(white,green) should be 0.94 but is " + s, s.getRoundedValue() == 0.93);
 			s = f.calculateSimilarity("green", "white");
-			assertTrue("sim(green,white) should be 0.94 but is " + s, s.getRoundedValue() == 0.94);
+			assertTrue("sim(green,white) should be 0.94 but is " + s, s.getRoundedValue() == 0.93);
 			
 			g.setFunctionTypeL(NumberConfig.STEP_AT);
 			g.setFunctionParameterR(1.0);

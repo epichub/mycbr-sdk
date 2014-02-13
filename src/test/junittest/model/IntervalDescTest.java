@@ -37,8 +37,6 @@ import junit.framework.TestCase;
  */
 public class IntervalDescTest extends TestCase {
 
-
-
 	public void testCalculateSimilarity() {
 		try {
 				

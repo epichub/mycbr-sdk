@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import de.dfki.mycbr.util.Pair;
 import junit.framework.TestCase;
 
 import org.junit.Test;
@@ -66,8 +67,7 @@ public class TrigramTest extends TestCase {
 			//Project p = new Project(File.separator + "home"  + File.separator + "zilles" + File.separator + "worhspace" + File.separator + "myCBR2" + File.separator + "projects/UsedCarsFlat/trigramTest_CBR_SMF.XML");
 			Project p = new Project(System.getProperty("user.dir") + "/src/test/projects/UsedCarsFlat/trigramTest_CBR_SMF.XML");
 			Concept car = p.getConceptByID("Car");
-			
-			
+
 			// disable other attributes so there is only the
 			// string attribute taken into account
 			SymbolDesc body = (SymbolDesc)car.getAttributeDescs().get("Body");
@@ -117,15 +117,18 @@ public class TrigramTest extends TestCase {
 			Instance case2 = c2;
 			// other attributes are automatically set to _undefined_
 			case1.addAttribute(s1.getName(),s1.getStringAttribute("RECIEVE"));
-			case2.addAttribute(s1.getName(),s1.getStringAttribute("RECIEVER"));
-			
+			case2.addAttribute(s1.getName(),s1.getStringAttribute("RECEIEVE"));
+
+            cb.addCase(case1);
+            cb.addCase(case2);
+
 //			System.out.println("\n--------------------------- query ---------------------------------");
 //			q.print();
 			r.setRetrievalMethod(RetrievalMethod.RETRIEVE_K_SORTED);
 			r.setK(3);
 			r.start();
 			LinkedList<Double> results = printResult(r);
-			assertTrue("result is: " + results.toString() + " but should be [1.0,0.38,0.33]", results.equals(Arrays.asList(new Double[]{1.0d,0.38d,0.33d})));
+			assertTrue("result is: " + results.toString() + " but should be [1.0,0.38,0.33]", results.equals(Arrays.asList(new Double[]{1.0d, 0.38d, 0.33d})));
 		} catch (Exception e) {
 			e.printStackTrace();
 			assertTrue("Excpetion in UsedCarsFlatTest: testMyCBRImport",false);
@@ -138,14 +141,14 @@ public class TrigramTest extends TestCase {
 	 * @param result retrieval result
  	 * @return
 	 */
-	private LinkedList<Double> printResult(HashMap<Instance, Similarity>  result ) {
-		LinkedList<Double> sims = new LinkedList<Double>();
-		for (Map.Entry<Instance, Similarity> entry : result.entrySet()) {
-			//System.out.println("\nSimilarity: " + r.getSecond().getValue() + " to case:");
-			//r.getFirst().print();
-			sims.add(entry.getValue().getRoundedValue());
-		}
-		return sims;
-	}
+    private LinkedList<Double> printResult(Retrieval result) {
+        LinkedList<Double> sims = new LinkedList<>();
+        for (Pair<Instance, Similarity> pair : result.getResult()) {
+//			System.out.println("\nSimilarity: " + pair.getSecond() + " to case:");
+//			pair.getFirst();
+            sims.add(pair.getSecond().getRoundedValue());
+        }
+        return sims;
+    }
 	
 }

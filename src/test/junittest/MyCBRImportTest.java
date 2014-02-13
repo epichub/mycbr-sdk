@@ -28,11 +28,9 @@
 
 package test.junittest;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
+import de.dfki.mycbr.util.Pair;
 import junit.framework.TestCase;
 
 import org.junit.Test;
@@ -57,7 +55,6 @@ public class MyCBRImportTest extends TestCase {
 	public void testMyCBRImport1() {
 
 		try {
-			//Project project = new Project(File.separator + "home"  + File.separator + "zilles" + File.separator + "worhspace" + File.separator + "myCBR2" + File.separator + "projects" + File.separator + "MyCBRImportTest1" + File.separator + "MyCBRImportTest_CBR_SMF.XML");
 			Project project = new Project(System.getProperty("user.dir") + "/src/test/projects/MyCBRImportTest1/MyCBRImportTest_CBR_SMF.XML");
 
 			LinkedList<Double> results;
@@ -68,6 +65,7 @@ public class MyCBRImportTest extends TestCase {
 			DefaultCaseBase cb = (DefaultCaseBase)project.getCaseBases().get("CaseBase0");
 
 			Retrieval r = new Retrieval(car, cb);
+            r.setRetrievalMethod(RetrievalMethod.RETRIEVE_SORTED);
 			Instance q = r.getQueryInstance();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("Audi"));
 			q.addAttribute(color.getName(), color.getAttribute("red"));
@@ -76,7 +74,7 @@ public class MyCBRImportTest extends TestCase {
 			r.start();
 			results = printResult(r);
 
-			assertTrue("result should be [0.3,1.0,0.0,0.8] but is " + results, results.equals(Arrays.asList(new Double[]{0.3d,1.0d,0.0d,0.8d})));
+			assertTrue("result should be [1.0,0.8,0.3,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{1.0d, 0.8d, 0.3d, 0.0d})));
 	
 			r.resetQuery();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("Audi"));
@@ -86,7 +84,7 @@ public class MyCBRImportTest extends TestCase {
 			//q.print();
 			r.start();
 			results = printResult(r);
-			assertTrue("result should be [0.8,0.3,1.0,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{0.8d,0.3d,1.0d,0.0d})));
+            assertTrue("result should be [1.0,0.8,0.3,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{1.0d, 0.8d, 0.3d, 0.0d})));
 	
 			r.resetQuery();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("BMW"));
@@ -95,7 +93,7 @@ public class MyCBRImportTest extends TestCase {
 			//q.print();
 			r.start();
 			results = printResult(r);
-			assertTrue("result should be [1.0,0.5,0.8,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{1.0d,0.5d,0.8d,0.0d})));
+			assertTrue("result should be [1.0,0.8,0.5,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{1.0d,0.8d,0.5d,0.0d})));
 	
 			r.resetQuery();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("BMW"));
@@ -105,7 +103,7 @@ public class MyCBRImportTest extends TestCase {
 			//q.print();
 			r.start();
 			results = printResult(r);
-			assertTrue("result should be [1.0,0.5,0.8,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{1.0d,0.5d,0.8d,0.0d})));
+			assertTrue("result should be [1.0,0.8,0.5,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{1.0d,0.8d,0.5d,0.0d})));
 	
 			r.resetQuery();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("VW"));
@@ -114,7 +112,7 @@ public class MyCBRImportTest extends TestCase {
 			//q.print();
 			r.start();
 			results = printResult(r);
-			assertTrue("result should be [0.55,0.05,0.6,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{0.55d,0.05d,0.6d,0.0d})));
+			assertTrue("result should be [0.6,0.55,0.05,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{0.6d,0.55d,0.05d,0.0d})));
 	
 			r.resetQuery();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("VW"));
@@ -123,7 +121,7 @@ public class MyCBRImportTest extends TestCase {
 			//q.print();
 			r.start();
 			results = printResult(r);
-			assertTrue("result should be [0.49,0.05,0.54,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{0.49d,0.05d,0.54d,0.0d})));
+			assertTrue("result should be [0.54,0.49,0.05,0.0] but is " + results, results.equals(Arrays.asList(new Double[]{0.54d,0.49d,0.05d,0.0d})));
 			
 			r.resetQuery();
 			q.addAttribute(manufacturer.getName(), manufacturer.getAttribute("VW"));
@@ -132,7 +130,7 @@ public class MyCBRImportTest extends TestCase {
 			//q.print();
 			r.start();
 			results = printResult(r);
-			assertTrue("result should be [0.05,0.55,0.1,0.5] but is " + results,results.equals(Arrays.asList(new Double[]{0.05d,0.55d,0.1d,0.5d})));
+			assertTrue("result should be [0.55,0.5,0.1,0.5] but is " + results,results.equals(Arrays.asList(new Double[]{0.55d,0.5d,0.1d,0.05d})));
 		} catch (Exception e) {
 			e.printStackTrace();
 			assertTrue("Excpetion in MyCBRImportTest: testMyCBRImport", false);
@@ -142,8 +140,7 @@ public class MyCBRImportTest extends TestCase {
 	@Test
 	public void testUsedCarsFlat() {
 		try {
-			//Project project = new Project(File.separator + "home"  + File.separator + "zilles" + File.separator + "worhspace" + File.separator + "myCBR2" + File.separator + "projects/UsedCarsFlat/used_cars_flat_CBR_SMF.XML");
-            Project project = new Project(System.getProperty("user.dir") + "/src/test/projects/UsedCarsFlat/used_cars_flat_CBR_SMF.XML");
+	        Project project = new Project(System.getProperty("user.dir") + "/src/test/projects/UsedCarsFlat/used_cars_flat_CBR_SMF.XML");
             LinkedList<Double> results;
 			Concept car = project.getConceptByID("Car");
 			
@@ -228,12 +225,12 @@ public class MyCBRImportTest extends TestCase {
 		}
 	}
 	
-	private LinkedList<Double> printResult(HashMap<Instance, Similarity>  result ) {
-		LinkedList<Double> sims = new LinkedList<Double>();
-		for (Map.Entry<Instance, Similarity> entry : result.entrySet()) {
-			//System.out.println("\nSimilarity: " + r.getSecond().getValue() + " to case:");
-			//r.getFirst().print();
-			sims.add(entry.getValue().getRoundedValue());
+	private LinkedList<Double> printResult(Retrieval result) {
+		LinkedList<Double> sims = new LinkedList<>();
+		for (Pair<Instance, Similarity> pair : result.getResult()) {
+//			System.out.println("\nSimilarity: " + pair.getSecond() + " to case:");
+//			pair.getFirst();
+			sims.add(pair.getSecond().getRoundedValue());
 		}
 		return sims;
 	}
@@ -241,7 +238,6 @@ public class MyCBRImportTest extends TestCase {
 	@Test
 	public void testProject() {
 		try {
-			//new Project(File.separator + "home"  + File.separator + "zilles" + File.separator + "worhspace" + File.separator + "myCBR2" + File.separator + "projects/Testproject/Testproject_CBR_SMF.XML");
             new Project(System.getProperty("user.dir") + "/src/test/projects/Testproject/Testproject_CBR_SMF.XML");
 		} catch (Exception e) {
 			e.printStackTrace();

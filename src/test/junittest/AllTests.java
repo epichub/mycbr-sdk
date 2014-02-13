@@ -33,15 +33,10 @@ import junit.framework.TestSuite;
 import test.junittest.casebase.ConceptWith2PartOfTest;
 import test.junittest.casebase.OverrideAttributeTest;
 import test.junittest.casebase.OverrideAttributeTest2;
+import test.junittest.load.*;
 import test.junittest.model.ConceptDescTest;
 import test.junittest.model.ConceptTest;
-import test.junittest.similarity.AdvancedNumberTest;
-import test.junittest.similarity.OrderedSymbolTest;
-import test.junittest.similarity.StandardNumberTest;
-import test.junittest.similarity.StringFunctionTest;
-import test.junittest.similarity.SymbolFunctionTest;
-import test.junittest.similarity.TaxonomyTest;
-import test.junittest.similarity.TrigramTest;
+import test.junittest.similarity.*;
 
 /**
  * Runs all jUnit tests 
@@ -56,11 +51,12 @@ public class AllTests {
 		TestSuite suite = new TestSuite("myCBR SDK Tests");
 		//$JUnit-BEGIN$
 		// package
+        suite.addTestSuite(ImportTest.class);
 		suite.addTestSuite(MultipleAttTest.class);
 		suite.addTestSuite(MyCBRImportTest.class);
 		suite.addTestSuite(RetrievalTest.class);
 		suite.addTestSuite(TrigramTest.class);
-		
+
 		// case base package
 		suite.addTestSuite(ConceptWith2PartOfTest.class); 
 		suite.addTestSuite(OverrideAttributeTest.class); 
@@ -78,13 +74,18 @@ public class AllTests {
 
 		// similarity package
 		suite.addTestSuite(AdvancedNumberTest.class);
+		suite.addTestSuite(AdvancedNumberTestDouble.class);
 		suite.addTestSuite(OrderedSymbolTest.class);
 		suite.addTestSuite(StandardNumberTest.class);
 		suite.addTestSuite(StringFunctionTest.class);
 		suite.addTestSuite(SymbolFunctionTest.class);
 		suite.addTestSuite(TaxonomyTest.class);
-		
-		//$JUnit-END$
+		suite.addTestSuite(TrigramTest.class);
+
+        // load package
+        suite.addTestSuite(Test1000.class);
+
+        //$JUnit-END$
 		return suite;
 	}
 

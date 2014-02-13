@@ -60,4 +60,23 @@ public class StringFunctionTest extends TestCase {
 		
 	}
 
+    /**
+     * Test method for {@link de.dfki.mycbr.core.similarity.StringFct#calculateSimilarity(Attribute, Attribute)}.
+     */
+    @Test
+    public void testCalculateSimilarityNGRAM() {
+
+        try {
+            TestFramework frame = new TestFramework();
+            StringFct f = frame.dealerDesc.addStringFct(StringConfig.NGRAM, "f1", true);
+
+            assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24"), frame.dealerDesc.getStringAttribute("Car23")).getRoundedValue() == 0.5);
+            assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24"), frame.dealerDesc.getStringAttribute("Car24")).getRoundedValue() == 1.00);
+
+        } catch (Exception exp) {
+            assertTrue("Excpetion in StringFctTest: testCalculateSimilarityEQUALITY",false);
+        }
+
+    }
+
 }

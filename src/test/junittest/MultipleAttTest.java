@@ -106,7 +106,7 @@ public class MultipleAttTest extends TestCase {
 			
 			fw.amalgam.setType(AmalgamationConfig.EUCLIDEAN);
 			Similarity s1 = fw.amalgam.calculateSimilarity(q,c1);
-			assertTrue("sim is " + s1.getRoundedValue() + " but should be 0.96",s1.getRoundedValue() == 0.96);
+			assertTrue("sim is " + s1.getRoundedValue() + " but should be 0.97",s1.getRoundedValue() == 0.97);
 						
 
 			fw.amalgam.setType(AmalgamationConfig.WEIGHTED_SUM);
