@@ -226,7 +226,7 @@ public class MyCBRImportTest extends TestCase {
 	}
 	
 	private LinkedList<Double> printResult(Retrieval result) {
-		LinkedList<Double> sims = new LinkedList<>();
+		LinkedList<Double> sims = new LinkedList<Double>();
 		for (Pair<Instance, Similarity> pair : result.getResult()) {
 //			System.out.println("\nSimilarity: " + pair.getSecond() + " to case:");
 //			pair.getFirst();
