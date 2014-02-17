@@ -83,7 +83,7 @@ public class AllTests {
 		suite.addTestSuite(TrigramTest.class);
 
         // load package
-        suite.addTestSuite(Test1000.class);
+        //suite.addTestSuite(Test1000.class);
 
         //$JUnit-END$
 		return suite;

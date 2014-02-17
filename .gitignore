@@ -9,3 +9,4 @@ bin/**/*
 *.myCBR
 *.myExp
 *.config
+/bin
