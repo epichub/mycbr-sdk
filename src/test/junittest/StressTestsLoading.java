@@ -3,8 +3,8 @@
  *
  * Copyright (c) 2009
  * Thomas Roth-Berghofer, Armin Stahl & Deutsches Forschungszentrum f&uuml;r K&uuml;nstliche Intelligenz DFKI GmbH
- * Further contributors: myCBR Team (see http://mycbr-project.net/contact.html for further information 
- * about the myCBR Team). 
+ * Further contributors: myCBR Team (see http://mycbr-project.net/contact.html for further information
+ * about the myCBR Team).
  * All rights reserved.
  *
  * myCBR is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
  *
  * Since myCBR uses some modules, you should be aware of their licenses for
  * which you should have received a copy along with this program, too.
- * 
+ *
  * endOfLic */
 
 package test.junittest;
@@ -43,7 +43,7 @@ import java.util.Date;
  *
  * @author myCBR Team
  */
-public class StressTests {
+public class StressTestsLoading {
 
 
 //    @Test
