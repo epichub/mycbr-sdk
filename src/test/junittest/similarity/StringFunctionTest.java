@@ -3,8 +3,8 @@
  *
  * Copyright (c) 2009
  * Thomas Roth-Berghofer, Armin Stahl & Deutsches Forschungszentrum f&uuml;r K&uuml;nstliche Intelligenz DFKI GmbH
- * Further contributors: myCBR Team (see http://mycbr-project.net/contact.html for further information 
- * about the myCBR Team). 
+ * Further contributors: myCBR Team (see http://mycbr-project.net/contact.html for further information
+ * about the myCBR Team).
  * All rights reserved.
  *
  * myCBR is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
  *
  * Since myCBR uses some modules, you should be aware of their licenses for
  * which you should have received a copy along with this program, too.
- * 
+ *
  * endOfLic */
 
 package test.junittest.similarity;
@@ -41,27 +41,29 @@ import test.junittest.TestFramework;
  *
  */
 public class StringFunctionTest extends TestCase {
-	
+
 	/**
-	 * Test method for {@link de.dfki.mycbr.core.similarity.StringFct#calculateSimilarity(Attribute, Attribute)}.
+	 * Test method for {@link de.dfki.mycbr.core.similarity.StringFct calculateSimilarity(Attribute, Attribute)}.
 	 */
 	@Test
 	public void testCalculateSimilarityEQUALITY() {
-		
+
 		try {
 			TestFramework frame = new TestFramework();
 			StringFct f = frame.dealerDesc.addStringFct(StringConfig.EQUALITY, "f1", true);
 			assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24"), frame.dealerDesc.getStringAttribute("Car23")).getValue() == 0.0);
 			assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24"), frame.dealerDesc.getStringAttribute("Car24")).getValue() == 1.00);
-			
+			assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24 Car24"), frame.dealerDesc.getStringAttribute("Car24")).getValue() == 0.0);
+			assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24 Car24"), frame.dealerDesc.getStringAttribute("Car24 Car24")).getValue() == 1.0);
+
 		} catch (Exception exp) {
 			assertTrue("Excpetion in StringFctTest: testCalculateSimilarityEQUALITY",false);
 		}
-		
+
 	}
 
     /**
-     * Test method for {@link de.dfki.mycbr.core.similarity.StringFct#calculateSimilarity(Attribute, Attribute)}.
+     * Test method for {@link de.dfki.mycbr.core.similarity.StringFct calculateSimilarity(Attribute, Attribute)}.
      */
     @Test
     public void testCalculateSimilarityNGRAM() {
@@ -72,11 +74,14 @@ public class StringFunctionTest extends TestCase {
 
             assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24"), frame.dealerDesc.getStringAttribute("Car23")).getRoundedValue() == 0.5);
             assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24"), frame.dealerDesc.getStringAttribute("Car24")).getRoundedValue() == 1.00);
+            assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24 Car24"), frame.dealerDesc.getStringAttribute("Car24")).getRoundedValue() == 0.5);
+            assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("Car24 Car24"), frame.dealerDesc.getStringAttribute("Car24 Car24")).getRoundedValue() == 1.0);
+            assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("trtr"), frame.dealerDesc.getStringAttribute("trtritri")).getRoundedValue() == 0.4);
+            assertTrue(f.calculateSimilarity(frame.dealerDesc.getStringAttribute("tritrtr"), frame.dealerDesc.getStringAttribute("tritr")).getRoundedValue() == 0.6);
 
         } catch (Exception exp) {
             assertTrue("Excpetion in StringFctTest: testCalculateSimilarityEQUALITY",false);
         }
 
     }
-
 }
