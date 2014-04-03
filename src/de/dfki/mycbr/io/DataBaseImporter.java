@@ -50,7 +50,6 @@ public class DataBaseImporter {
 
 	private HashMap<Integer, Database> dbases;
 	private Database db;
-	private boolean underscore;
 	
 	private Concept concept;
 	private Project project;
@@ -91,7 +90,6 @@ public class DataBaseImporter {
 		this.dbases = new HashMap<Integer, Database>();
 		this.concept = concept;
 		this.project = project;
-		this.underscore = false;
 		this.dbmapping = dbmapping;
 		
 		readMetaDataFromXML();		
@@ -603,7 +601,6 @@ public class DataBaseImporter {
 									for (String s : values) {
 										if (!symbDesc.isAllowedValue(s.trim())) {
 											s = s.replace(" ", "_");
-											underscore = true;
 											if (!symbDesc.isAllowedValue(s.trim())) {
 												invalidValues.add(new Pair<String, AttributeDesc> (s.trim(),d));
 											}
