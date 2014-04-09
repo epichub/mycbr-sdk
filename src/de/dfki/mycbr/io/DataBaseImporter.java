@@ -18,6 +18,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -79,6 +80,8 @@ public class DataBaseImporter {
 	
 	private HashSet<Pair<String, AttributeDesc>> invalidValues = new HashSet<Pair<String, AttributeDesc>>();
 	
+	private static Logger logger = Logger.getLogger(DataBaseImporter.class);
+	
 	Thread t;
 	
 	/**
@@ -120,7 +123,8 @@ public class DataBaseImporter {
 			
 		} catch (ClassNotFoundException ce) {
 			error = DataBaseImporterError.DataBaseConnect;
-			System.out.println(ce.getLocalizedMessage());
+			logger.error(ce.getLocalizedMessage());
+			//			System.out.println(ce.getLocalizedMessage());
 		} catch (SQLException se) {
 			error = DataBaseImporterError.DataBaseConnect;
 			System.out.println(se.getLocalizedMessage());
