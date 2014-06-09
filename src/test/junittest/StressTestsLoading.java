@@ -29,26 +29,42 @@
 package test.junittest;
 
 import de.dfki.mycbr.core.Project;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Runs all jUnit tests
+ * Runs Project Loading Stress Tests
  *
  * @author myCBR Team
  */
 public class StressTestsLoading {
 
+    @After
+    public void removeTmp(){
+        try {
+            File directory = new File(System.getProperty("user.dir") + "/src/test/projects/StressTest/tmp");
+            File[] files = directory.listFiles();
+            for (File file : files) {
+                file.delete();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-//    @Test
+
+    @Test
     public void testIncreasingAttributesOnly (){
         int cases = 5;
+        int maxAttributes = 100;
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateFormat.applyPattern("h:mm:ss");
 
@@ -65,7 +81,7 @@ public class StressTestsLoading {
         pw.print("duration");
         pw.print("\n");
 
-        for (int noAtts = 1 ; noAtts <= 1000 ; noAtts++){
+        for (int noAtts = 1 ; noAtts <= maxAttributes ; noAtts++){
             Long duration = loadProject(noAtts,cases);
 
             double dur = ((double) duration) / 1000;
@@ -89,6 +105,7 @@ public class StressTestsLoading {
     @Test
     public void testIncreasingCasesOnly (){
         int noAtts = 5;
+        int maxCases = 100;
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateFormat.applyPattern("h:mm:ss");
 
@@ -105,7 +122,7 @@ public class StressTestsLoading {
             pw.print("duration");
             pw.print("\n");
 
-            for (int cases = 1 ; cases <= 1000 ; cases++){
+            for (int cases = 1 ; cases <= maxCases ; cases++){
                 Long duration = loadProject(noAtts,cases);
 
                 double dur = ((double) duration) / 1000;
@@ -121,16 +138,20 @@ public class StressTestsLoading {
             pw.flush();
             pw.close();
             fw.close();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     // Attributes grow exponentially
-//    @Test
+    @Test
     public void testIncreasingCasesAndAttributes (){
         int noAtts = 4;
         int cases = 50;
+        int maxAtts = 50;
+        int maxCases = 200;
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateFormat.applyPattern("h:mm:ss");
 
@@ -161,7 +182,7 @@ public class StressTestsLoading {
                 pw.print("\n");
                 noAtts = noAtts + Math.abs(noAtts / 4);
                 cases = cases + Math.abs(cases/2);;
-            } while (cases < 20000 && noAtts < 150);
+            } while (cases < maxCases && noAtts < maxAtts);
             pw.flush();
             pw.close();
             fw.close();
@@ -171,10 +192,12 @@ public class StressTestsLoading {
     }
 
     // Attributes grow exponentially
-//    @Test
+    @Test
     public void testIncreasingAttributesAndCases (){
         int cases = 4;
         int noAtts = 50;
+        int maxAtts = 200;
+        int maxCases = 50;
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateFormat.applyPattern("h:mm:ss");
 
@@ -205,7 +228,66 @@ public class StressTestsLoading {
                 pw.print("\n");
                 cases = cases + Math.abs(cases/4);
                 noAtts = noAtts + Math.abs(noAtts/2);;
-            } while (noAtts < 20000 && cases < 150);
+            } while (noAtts < maxAtts && cases < maxCases);
+            pw.flush();
+            pw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Attributes grow exponentially
+    @Test
+    public void testSymbolsIncreasingAttributesAndCases (){
+        int cases = 0;
+        int noAtts = 4;
+        int values = 10;
+        int subValues = 10;
+        int maxValues = 15;
+        int maxSubValues = 15;
+        int maxAtts = 100;
+        int maxCases = 0;
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        dateFormat.applyPattern("h:mm:ss");
+
+        FileWriter fw = null;
+
+        try {
+            fw = new FileWriter(System.getProperty("user.dir") + "/src/test/projects/StressTest/testSymbolsIncreasingAttributesAndCases.csv");
+
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print("noAtts");
+            pw.print(",");
+            pw.print("noCases");
+            pw.print(",");
+            pw.print("noValues");
+            pw.print(",");
+            pw.print("noSubValues");
+            pw.print(",");
+            pw.print("duration");
+            pw.print("\n");
+
+            do{
+                Long duration = loadSymbolsInProject(noAtts, cases, values, subValues);
+
+                double dur = ((double) duration) / 1000;
+                DecimalFormat decFormat = new DecimalFormat("###,###,##0.000");
+                decFormat.format(dur);
+                pw.print(noAtts);
+                pw.print(",");
+                pw.print(cases);
+                pw.print(",");
+                pw.print(values);
+                pw.print(",");
+                pw.print(subValues);
+                pw.print(",");
+                pw.print(dur);
+                pw.print("\n");
+                values++;
+                subValues++;
+                noAtts++;
+            } while (noAtts < maxAtts && values < maxValues && subValues < maxSubValues);
             pw.flush();
             pw.close();
             fw.close();
@@ -219,6 +301,27 @@ public class StressTestsLoading {
         try {
             StressTestFramework stf = new StressTestFramework();
             String projectPath = stf.initStressTestFramework(noOfAttributes, noOfCases);
+
+            Date start = new Date();
+            Project p = new Project(projectPath);
+            while (p.isImporting()){
+                Thread.sleep(1);
+            }
+            Date end = new Date();
+            duration = end.getTime() - start.getTime();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return duration;
+
+    }
+
+    public long loadSymbolsInProject(int attributes, int cases, int values, int subValues) {
+        long duration = 0L;
+        try {
+            StressTestFramework stf = new StressTestFramework();
+            String projectPath = stf.initSymbolTestFramework(attributes, cases, values, subValues);
 
             Date start = new Date();
             Project p = new Project(projectPath);
