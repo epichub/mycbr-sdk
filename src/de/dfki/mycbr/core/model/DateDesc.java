@@ -185,12 +185,16 @@ public class DateDesc extends SimpleAttDesc {
 	 *            the description for which a new function should be created
 	 * @return the Similarity.getFunction for description desc
 	 */
-	public DateFct addDateFct(String name, boolean active) {
-		DateFct f = new DateFct(owner.getProject(), this, name);
+	public DateFct addDateFct(String name, boolean active, DateFct.DateFunctionPrecision adjust) {
+		DateFct f = new DateFct(owner.getProject(), this, name, adjust);
 		addFunction(f, active);
 
 		return f;
 	}
+
+    public DateFct addDateFct(String name, boolean active) {
+        return addDateFct(name, active, DateFct.DateFunctionPrecision.Year);
+    }
 	
 	/*
 	 * (non-Javadoc)
@@ -265,7 +269,7 @@ public class DateDesc extends SimpleAttDesc {
 	void addDefaultFct() {
 		
 		if (owner != null && owner != owner.getProject()) {
-			ISimFct activeSim = addDateFct(Project.DEFAULT_FCT_NAME, false);
+			ISimFct activeSim = addDateFct(Project.DEFAULT_FCT_NAME, false, DateFct.DateFunctionPrecision.Day);
 			updateAmalgamationFcts(owner, activeSim);
 		}
 	}
