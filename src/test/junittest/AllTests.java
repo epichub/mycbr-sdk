@@ -81,6 +81,7 @@ public class AllTests {
 		suite.addTestSuite(SymbolFunctionTest.class);
 		suite.addTestSuite(TaxonomyTest.class);
 		suite.addTestSuite(TrigramTest.class);
+		suite.addTestSuite(DateFunctionTest.class);
 
         // load package
         //suite.addTestSuite(Test1000.class);
