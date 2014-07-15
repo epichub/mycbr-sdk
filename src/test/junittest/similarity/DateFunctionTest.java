@@ -69,28 +69,28 @@ public class DateFunctionTest extends TestCase {
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 01:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 23:59"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Hour [00:01 - 23:59]: " + sim.getValue());
+            ////System.out.println("Similarity Hour [00:01 - 23:59]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0.08333);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 01:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 01:50"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Hour [01:00 - 01:50]: " + sim.getValue());
+            //System.out.println("Similarity Hour [01:00 - 01:50]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 1);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 01:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 02:00"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Hour [01:00 - 02:00]: " + sim.getValue());
+            //System.out.println("Similarity Hour [01:00 - 02:00]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0.95833);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 12:00"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Hour [00:00 - 12:00]: " + sim.getValue());
+            //System.out.println("Similarity Hour [00:00 - 12:00]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0.5);
 
-            System.out.println("\r\n=== Hour Loop Test || Start");
+            //System.out.println("\r\n=== Hour Loop Test || Start");
             for (int i = 0; i < 24; i++) {
                 String hour = "";
                 if (i < 10) {
@@ -100,9 +100,9 @@ public class DateFunctionTest extends TestCase {
                 date1 = newDate.getDateAttribute(df.parse("2014-04-16 " + hour + ":03"));
                 date2 = newDate.getDateAttribute(df.parse("2014-04-16 00:03"));
                 sim = f.calculateSimilarity(date1, date2);
-                System.out.println("Similarity Hour [" + hour + ":03 - 00:03]: " + sim.getValue());
+                //System.out.println("Similarity Hour [" + hour + ":03 - 00:03]: " + sim.getValue());
             }
-            System.out.println("=== Hour Loop Test || End\n");
+            //System.out.println("=== Hour Loop Test || End\n");
 
             df = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 
@@ -110,19 +110,19 @@ public class DateFunctionTest extends TestCase {
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Hours [2014-04-17 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Hours [2014-04-17 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2014-05-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Hours [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Hours [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2015-04-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Hours [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Hours [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             // Minute Test
             df = new SimpleDateFormat("yyyy-MM-dd kk:mm");
@@ -130,40 +130,40 @@ public class DateFunctionTest extends TestCase {
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:30"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Minute [13:00 - 13:30]: " + sim.getValue());
+            //System.out.println("Similarity Minute [13:00 - 13:30]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0.5);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Minute [13:00 - 13:00]: " + sim.getValue());
+            //System.out.println("Similarity Minute [13:00 - 13:00]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 1);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:31"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:31"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Minute [13:31 - 13:31]: " + sim.getValue());
+            //System.out.println("Similarity Minute [13:31 - 13:31]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 1);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:59"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Minute [13:00 - 13:59]: " + sim.getValue());
+            //System.out.println("Similarity Minute [13:00 - 13:59]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0.01667);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:45"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("Similarity Minute [13:00 - 13:45]: " + sim.getValue());
+            //System.out.println("Similarity Minute [13:00 - 13:45]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0.25);
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 14:45"));
             sim = f.calculateSimilarity(date1, date2);
-            System.out.println("XXX Similarity Minute [13:00 - 14:45]: " + sim.getValue());
+            //System.out.println("XXX Similarity Minute [13:00 - 14:45]: " + sim.getValue());
             assertTrue(round(sim.getValue()) == 0);
 
-            System.out.println("\n=== Minute Loop Test || Start");
+            //System.out.println("\n=== Minute Loop Test || Start");
             for (int i = 0; i < 60; i++) {
                 String minute = "";
                 if (i < 10) {
@@ -173,9 +173,9 @@ public class DateFunctionTest extends TestCase {
                 date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:" + i));
                 date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00"));
                 sim = f.calculateSimilarity(date1, date2);
-                System.out.println("Similarity Minute [13:00 - 13:" + minute + "]: " + sim.getValue());
+                //System.out.println("Similarity Minute [13:00 - 13:" + minute + "]: " + sim.getValue());
             }
-            System.out.println("=== Minute Loop Test || End\n");
+            //System.out.println("=== Minute Loop Test || End\n");
 
             df = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 
@@ -183,31 +183,31 @@ public class DateFunctionTest extends TestCase {
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Minutes [2014-04-16 14:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Minutes [2014-04-16 14:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-17 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Minutes [2014-04-17 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Minutes [2014-04-17 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2014-05-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Minutes [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Minutes [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2015-04-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Minutes [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Minutes [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             // Seconds Test
             ((DateFct)newDate.getFct("DateFct")).setPrecision(DateFct.DateFunctionPrecision.Second);
             df = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 
-            System.out.println("\n=== Seconds Loop Test || Start");
+            //System.out.println("\n=== Seconds Loop Test || Start");
             for (int i = 0; i < 60; i++) {
                 String second = "";
                 if (i < 10) {
@@ -217,45 +217,45 @@ public class DateFunctionTest extends TestCase {
                 date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:" + i));
                 date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:00"));
                 sim = f.calculateSimilarity(date1, date2);
-                System.out.println("Similarity Seconds [13:00:00 - 13:00:" + second + "]: " + sim.getValue());
+                //System.out.println("Similarity Seconds [13:00:00 - 13:00:" + second + "]: " + sim.getValue());
             }
-            System.out.println("=== Second Loop Test || End\n");
+            //System.out.println("=== Second Loop Test || End\n");
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 13:01:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Seconds [13:01:00 - 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Seconds [13:01:00 - 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-16 14:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Seconds [14:00:00 - 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Seconds [14:00:00 - 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2014-04-17 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Seconds [2014-04-17 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Seconds [2014-04-17 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2014-05-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Seconds [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Seconds [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2015-04-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Seconds [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Seconds [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             // Days Test
             ((DateFct)newDate.getFct("DateFct")).setPrecision(DateFct.DateFunctionPrecision.Day);
             df = new SimpleDateFormat("yyyy-MM-dd");
 
-            System.out.println("\n=== Days Loop Test || Start");
+            //System.out.println("\n=== Days Loop Test || Start");
             for (int i = 1; i <= 31; i++) {
                 String day = "";
                 if (i < 10) {
@@ -265,9 +265,9 @@ public class DateFunctionTest extends TestCase {
                 date1 = newDate.getDateAttribute(df.parse("2014-04-" + day));
                 date2 = newDate.getDateAttribute(df.parse("2014-04-01"));
                 sim = f.calculateSimilarity(date1, date2);
-                System.out.println("Similarity Days [2014-04-01 | 2014-04-" + day + "]: " + sim.getValue());
+                //System.out.println("Similarity Days [2014-04-01 | 2014-04-" + day + "]: " + sim.getValue());
             }
-            System.out.println("=== Days Loop Test || End\n");
+            //System.out.println("=== Days Loop Test || End\n");
 
             df = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
 
@@ -275,13 +275,13 @@ public class DateFunctionTest extends TestCase {
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Days [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Days [2014-05-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
             date1 = newDate.getDateAttribute(df.parse("2015-04-16 13:00:00"));
             date2 = newDate.getDateAttribute(df.parse("2014-04-16 13:00:30"));
             sim = f.calculateSimilarity(date1, date2);
             assertTrue(sim.getValue() == 0);
-            System.out.println("Similarity Days [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
+            //System.out.println("Similarity Days [2015-04-16 13:00:00 - 2014-04-16 13:00:30]: " + sim.getValue());
 
         } catch (Exception e) {
             assertTrue("Excpetion in testCalculateSimylarityHOUR",false);
