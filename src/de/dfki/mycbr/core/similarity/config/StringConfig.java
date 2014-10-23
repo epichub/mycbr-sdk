@@ -38,5 +38,5 @@ public enum StringConfig {
     /**
      *
      */
-    EQUALITY, NGRAM;
+    EQUALITY, NGRAM, LEVENSHTEIN;
 }
