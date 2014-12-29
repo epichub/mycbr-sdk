@@ -32,6 +32,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import de.dfki.mycbr.core.similarity.DateFct;
 import de.dfki.mycbr.core.similarity.StringFct;
 import de.dfki.mycbr.core.similarity.config.StringConfig;
 import test.junittest.TestFramework;
@@ -41,6 +42,26 @@ import test.junittest.TestFramework;
  *
  */
 public class StringFunctionTest extends TestCase {
+	
+	@Test
+	public void testBase() {
+		
+		try {
+			TestFramework frame = new TestFramework();
+			
+			StringFct f = frame.dealerDesc.addStringFct(StringConfig.LEVENSHTEIN, "f1", true);
+			// Base Tests
+	        assertEquals(frame.prj, f.getProject());
+	        assertEquals(true, f.isSymmetric());
+	        assertEquals("f1", f.getName());
+	        f.setName("f2");
+	        assertEquals("f2", f.getName());
+	        
+		} catch (Exception exp) {
+			assertTrue("Excpetion in StringFctTest: testBase",false);
+		}
+		
+	}
 	
 	/**
 	 * Test method for {@link de.dfki.mycbr.core.similarity.StringFct#calculateSimilarity(Attribute, Attribute)}.

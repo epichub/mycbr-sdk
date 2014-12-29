@@ -55,7 +55,16 @@ public class DateFunctionTest extends TestCase {
             DateDesc newDate = new DateDesc(frame.carDesc, "newDate", df.parse("1950-01-01 00:00:00"),  df.parse("2099-01-01 00:00:00"), df);
 
             // Add new DateFunction
-            DateFct f = newDate.addDateFct("DateFct", true, DateFct.DateFunctionPrecision.Second);
+            DateFct f = newDate.addDateFct("DateFct1", true, DateFct.DateFunctionPrecision.Second);
+            
+            // Base Tests
+            assertEquals(newDate, f.getDesc());
+            assertEquals(DateFct.DateFunctionPrecision.Second, f.getPrecision());
+            assertEquals(frame.prj, f.getProject());
+            assertEquals(true, f.isSymmetric());
+            assertEquals("DateFct1", f.getName());
+            f.setName("DateFct");
+            assertEquals("DateFct", f.getName());
 
             // Start testing
 
