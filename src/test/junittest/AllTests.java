@@ -26,17 +26,17 @@
  * 
  * endOfLic */
 
-package junittest;
+package test.junittest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import junittest.casebase.ConceptWith2PartOfTest;
-import junittest.casebase.OverrideAttributeTest;
-import junittest.casebase.OverrideAttributeTest2;
-import junittest.load.*;
-import junittest.model.ConceptDescTest;
-import junittest.model.ConceptTest;
-import junittest.similarity.*;
+import test.junittest.casebase.ConceptWith2PartOfTest;
+import test.junittest.casebase.OverrideAttributeTest;
+import test.junittest.casebase.OverrideAttributeTest2;
+import test.junittest.load.*;
+import test.junittest.model.ConceptDescTest;
+import test.junittest.model.ConceptTest;
+import test.junittest.similarity.*;
 
 /**
  * Runs all jUnit tests 

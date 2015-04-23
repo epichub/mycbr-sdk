@@ -26,7 +26,7 @@
  * 
  * endOfLic */
 
-package junittest.model;
+package test.junittest.model;
 import de.dfki.mycbr.core.Project;
 import de.dfki.mycbr.core.model.Concept;
 import de.dfki.mycbr.core.model.StringDesc;

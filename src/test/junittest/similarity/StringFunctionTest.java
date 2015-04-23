@@ -26,15 +26,16 @@
  *
  * endOfLic */
 
-package junittest.similarity;
+package test.junittest.similarity;
 
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import de.dfki.mycbr.core.similarity.DateFct;
 import de.dfki.mycbr.core.similarity.StringFct;
 import de.dfki.mycbr.core.similarity.config.StringConfig;
-import junittest.TestFramework;
+import test.junittest.TestFramework;
 
 /**
  * @author myCBR Team

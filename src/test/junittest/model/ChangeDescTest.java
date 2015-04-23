@@ -26,7 +26,7 @@
  * 
  * endOfLic */
 
-package junittest.model;
+package test.junittest.model;
 
 
 import junit.framework.TestCase;
@@ -34,7 +34,7 @@ import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 
-import junittest.TestFramework;
+import test.junittest.TestFramework;
 
 /**
  * @author myCBR Team

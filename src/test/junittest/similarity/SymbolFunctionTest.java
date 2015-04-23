@@ -26,7 +26,7 @@
  * 
  * endOfLic */
 
-package junittest.similarity;
+package test.junittest.similarity;
 
 import junit.framework.TestCase;
 
@@ -34,7 +34,7 @@ import org.junit.Test;
 
 import de.dfki.mycbr.core.similarity.Similarity;
 import de.dfki.mycbr.core.similarity.SymbolFct;
-import junittest.TestFramework;
+import test.junittest.TestFramework;
 
 /**
  * @author myCBR Team
