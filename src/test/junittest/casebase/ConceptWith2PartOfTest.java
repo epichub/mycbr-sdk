@@ -26,7 +26,7 @@
  * 
  * endOfLic */
 
-package test.junittest.casebase;
+package junittest.casebase;
 
 import java.util.Arrays;
 import java.util.HashSet;

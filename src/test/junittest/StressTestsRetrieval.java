@@ -1,4 +1,4 @@
-package test.junittest;
+package junittest;
 
 import de.dfki.mycbr.core.DefaultCaseBase;
 import de.dfki.mycbr.core.Project;

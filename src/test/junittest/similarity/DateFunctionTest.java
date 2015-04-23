@@ -26,7 +26,7 @@
  *
  * endOfLic */
 
-package test.junittest.similarity;
+package junittest.similarity;
 
 import de.dfki.mycbr.core.casebase.DateAttribute;
 import de.dfki.mycbr.core.model.DateDesc;
@@ -34,7 +34,7 @@ import de.dfki.mycbr.core.similarity.DateFct;
 import de.dfki.mycbr.core.similarity.Similarity;
 import junit.framework.TestCase;
 import org.junit.Test;
-import test.junittest.TestFramework;
+import junittest.TestFramework;
 
 import java.text.SimpleDateFormat;
 

@@ -26,7 +26,7 @@
  *
  * endOfLic */
 
-package test.junittest;
+package junittest;
 
 import de.dfki.mycbr.core.Project;
 import org.junit.After;

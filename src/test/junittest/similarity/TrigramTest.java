@@ -26,7 +26,7 @@
  * 
  * endOfLic */
 
-package test.junittest.similarity;
+package junittest.similarity;
 
 import java.util.Arrays;
 import java.util.HashMap;

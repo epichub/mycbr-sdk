@@ -26,7 +26,7 @@
  * 
  * endOfLic */
 
-package test.junittest.load;
+package junittest.load;
 
 import java.util.LinkedList;
 

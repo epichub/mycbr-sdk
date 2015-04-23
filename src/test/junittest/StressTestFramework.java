@@ -26,7 +26,7 @@
  *
  * endOfLic */
 
-package test.junittest;
+package junittest;
 
 import com.sun.deploy.util.ArrayUtil;
 import de.dfki.mycbr.core.DefaultCaseBase;
