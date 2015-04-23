@@ -28,8 +28,6 @@
 
 package test.junittest;
 
-import java.util.Map;
-
 import de.dfki.mycbr.core.DefaultCaseBase;
 import de.dfki.mycbr.core.Project;
 import de.dfki.mycbr.core.casebase.Attribute;
@@ -41,6 +39,8 @@ import de.dfki.mycbr.core.retrieval.Retrieval.RetrievalMethod;
 import de.dfki.mycbr.core.similarity.Similarity;
 import de.dfki.mycbr.util.Pair;
 import junit.framework.TestCase;
+
+import java.util.Map;
 
 /**
  * @author myCBR Team
