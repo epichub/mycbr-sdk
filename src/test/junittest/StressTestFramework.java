@@ -28,23 +28,21 @@
 
 package test.junittest;
 
-import com.sun.deploy.util.ArrayUtil;
+import java.util.HashSet;
+
 import de.dfki.mycbr.core.DefaultCaseBase;
 import de.dfki.mycbr.core.Project;
 import de.dfki.mycbr.core.casebase.Instance;
 import de.dfki.mycbr.core.casebase.SymbolAttribute;
-import de.dfki.mycbr.core.model.*;
+import de.dfki.mycbr.core.model.Concept;
+import de.dfki.mycbr.core.model.IntegerDesc;
+import de.dfki.mycbr.core.model.SymbolDesc;
 import de.dfki.mycbr.core.similarity.AmalgamationFct;
 import de.dfki.mycbr.core.similarity.IntegerFct;
 import de.dfki.mycbr.core.similarity.Similarity;
 import de.dfki.mycbr.core.similarity.TaxonomyFct;
 import de.dfki.mycbr.core.similarity.config.AmalgamationConfig;
 import de.dfki.mycbr.core.similarity.config.TaxonomyConfig;
-import org.junit.Test;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 /**
  * @author myCBR Team
