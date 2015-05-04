@@ -28,12 +28,9 @@ package test.junittest;
 
 import de.dfki.mycbr.core.Project;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

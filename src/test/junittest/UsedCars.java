@@ -89,6 +89,7 @@ public class UsedCars extends TestCase {
 		while (!r.isFinished()) {
 
 		}
+
 		@SuppressWarnings("unchecked")
 		Pair<Instance, Similarity>[] result = new Pair[r.size()];
     	int index = 0;
@@ -97,7 +98,7 @@ public class UsedCars extends TestCase {
     	}
 		for ( int i = 0; i < 957; i++ ) {
 			System.out.println(result[i].getFirst().getName() + " " + result[i].getSecond().getRoundedValue());
-			//assertTrue(result[i].getSecond().getValue()!=0.0);
+
 		}
 	}
 }

@@ -26,8 +26,6 @@
 
 package test.junittest.casebase;
 
-import java.io.IOException;
-import java.nio.file.*;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
 
@@ -41,7 +39,6 @@ import de.dfki.mycbr.core.model.IntegerDesc;
 import de.dfki.mycbr.core.model.IntervalDesc;
 import de.dfki.mycbr.core.model.StringDesc;
 import de.dfki.mycbr.core.model.SymbolDesc;
-import org.junit.Test;
 
 /**
  * When there is a sub c B of a given c A, then all attributes of

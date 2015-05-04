@@ -31,7 +31,6 @@ import junit.framework.TestSuite;
 import test.junittest.casebase.ConceptWith2PartOfTest;
 import test.junittest.casebase.OverrideAttributeTest;
 import test.junittest.casebase.OverrideAttributeTest2;
-import test.junittest.load.*;
 import test.junittest.model.ConceptDescTest;
 import test.junittest.model.ConceptTest;
 import test.junittest.similarity.*;

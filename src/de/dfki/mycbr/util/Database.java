@@ -148,6 +148,7 @@ public class Database {
 		return (String) mappings.get(table).get("concept");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Mapping> getMappings(String table) {
 		return (ArrayList<Mapping>) mappings.get(table).get("mapping");
 	}

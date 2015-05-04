@@ -26,7 +26,6 @@
 
 package de.dfki.mycbr.core.similarity;
 
-import java.io.Console;
 import java.util.HashSet;
 import java.util.Observable;
 

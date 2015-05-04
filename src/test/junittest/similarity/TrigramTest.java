@@ -27,9 +27,7 @@
 package test.junittest.similarity;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 import de.dfki.mycbr.util.Pair;
 import junit.framework.TestCase;
