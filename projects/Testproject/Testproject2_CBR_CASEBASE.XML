@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Document MyCBR_version="2.6.6" Project_version="0.1" Project_author="unknown author">
-<Instances_for_Class class="KB_266236_Class0">
-<Prototype>
-  <slotvalue slot="KB_266236_Class1" value="Symbol" allowed_values="a1;a2" />
-</Prototype>
-</Instances_for_Class>
-</Document>
