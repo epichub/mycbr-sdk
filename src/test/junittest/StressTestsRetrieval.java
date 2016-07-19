@@ -128,4 +128,96 @@ public class StressTestsRetrieval {
             e.printStackTrace();
         }
     }
+    
+    
+    @Test
+    public void testRetievalIncreasingCasesSymbols (){
+        int noAtts = 20;
+        int cases = 1;
+        int noCaseStep = 1000;
+        int maxNoCases = 11000;
+        long duration = 0L;
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        dateFormat.applyPattern("h:mm:ss");
+
+        FileWriter fw = null;
+
+        try {
+            fw = new FileWriter(System.getProperty("user.dir") + "/src/test/projects/StressTest/testRetievalSymbolIncreasingCasesAndAttributes"+maxNoCases+".csv");
+
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print("noAtts");
+            pw.print(",");
+            pw.print("noCases");
+            pw.print(",");
+            pw.print("duration");
+            pw.print("\n");
+
+
+            StressTestFramework stf = new StressTestFramework();
+            String projectPath = stf.initSymbolTestFramework(noAtts, cases, 4, 4);
+
+
+            Project p = new Project(projectPath);
+            while (p.isImporting()){
+                Thread.sleep(1);
+            }
+
+            cases++;
+            Concept mainDesc = p.getConceptByID("main");
+            DefaultCaseBase cb = (DefaultCaseBase) p.getCaseBases().get("casebase");
+
+            // create query
+            Retrieval r = new Retrieval(mainDesc, cb);
+            Instance query = r.getQueryInstance();
+            do{
+                // add Case
+                
+                String caseName = "case" + String.valueOf(cases);
+                Instance instance = mainDesc.addInstance(caseName);
+                for (String attName : mainDesc.getAttributeDescs().keySet()){
+                    instance.addAttribute(mainDesc.getAttributeDesc(attName), (int) (Math.random() * 100));
+                }
+                
+                cb.addCase(instance);
+           
+
+                for (String attName : mainDesc.getAttributeDescs().keySet()){
+                    query.addAttribute(mainDesc.getAttributeDesc(attName), (int) (Math.random() * 100));
+                }
+
+                if (cases%1000 == 0){
+                // do retrieval
+                Date start = new Date();
+                r.setRetrievalMethod(Retrieval.RetrievalMethod.RETRIEVE_SORTED);
+                r.start();
+                Date end = new Date();
+                duration = end.getTime() - start.getTime();
+
+                System.out.println("end: "+ end.toString());
+
+                // adding results to writer
+                double dur = ((double) duration) / 1000;
+                DecimalFormat decFormat = new DecimalFormat("###,###,##0.000");
+                decFormat.format(dur);
+                pw.print(noAtts);
+                pw.print(",");
+                pw.print(r.getResult().size());
+                pw.print(",");
+                pw.print(dur);
+                pw.print("\n");
+                } 
+
+                // counting
+                cases++;
+                
+            } while (cases < maxNoCases);
+            pw.flush();
+            pw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

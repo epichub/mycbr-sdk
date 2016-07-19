@@ -235,13 +235,13 @@ public class StressTestsLoading {
     // Attributes grow exponentially
     @Test
     public void testSymbolsIncreasingAttributesAndCases (){
-        int cases = 0;
-        int noAtts = 4;
+        int cases = 11000;
+        int noAtts = 20;
         int values = 10;
         int subValues = 10;
         int maxValues = 15;
         int maxSubValues = 15;
-        int maxAtts = 100;
+        int maxAtts = 20;
         int maxCases = 0;
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateFormat.applyPattern("h:mm:ss");

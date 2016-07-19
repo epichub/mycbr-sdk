@@ -6,8 +6,8 @@
 	<property name = "mycbr_src"          	value = "${user.dir}/src"/>
 	<property name = "mycbr_dist"          	value = "${user.dir}/dist"/>
 	<property name = "mycbr_doc"          	value = "${user.dir}/doc"/>
-	<property name = "targetVM"             value = "1.5"/>
-	<property name = "version"          	value = "3.0.0BETA"/>	
+	<property name = "targetVM"             value = "1.7"/>
+	<property name = "version"          	value = "3.2-BETA"/>	
 	<property name = "jarName"          	value = "myCBR${version}.jar"/>
 	<property name = "zipName"          	value = "myCBR${version}.zip"/>
 	<!-- generates a jar file -->

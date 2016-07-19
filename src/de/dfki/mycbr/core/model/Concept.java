@@ -690,7 +690,8 @@ public class Concept extends Observable implements IExplainable, Observer {
 			i = range.getInstance(name);
 			setChanged();
 		}
-		notifyObservers();
+		// TODO: check whether this is necessary
+		//notifyObservers();
 		return i;
 	}
 	
@@ -723,7 +724,8 @@ public class Concept extends Observable implements IExplainable, Observer {
 		boolean added = range.add(i);
 		if (added) {
 			setChanged();
-			notifyObservers();
+			// TODO: check whether this is necessary
+			//notifyObservers();
 		}
 		return added;
 	}
