@@ -10,3 +10,4 @@ bin/**/*
 *.myExp
 *.config
 /bin
+/target/

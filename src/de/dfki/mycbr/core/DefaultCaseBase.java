@@ -28,11 +28,7 @@ package de.dfki.mycbr.core;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Observable;
+import java.util.*;
 
 import de.dfki.mycbr.core.action.RenameAction;
 import de.dfki.mycbr.core.casebase.Instance;

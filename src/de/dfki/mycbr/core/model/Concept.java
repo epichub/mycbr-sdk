@@ -552,6 +552,15 @@ public class Concept extends Observable implements IExplainable, Observer {
 	}
 
 	/**
+	 * Removes all instances of this concept.
+	 *  
+	 * @return all instances of this concept
+	 */
+	public void removeAllDirectInstances() {
+		range.clear();;
+	}
+	
+	/**
 	 * Get all instances known for this concept
 	 * including instances of sub concepts.
 	 * 
